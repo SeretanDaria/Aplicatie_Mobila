@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aplicatie_Mobila.ListEntryPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Adaugati rezervare" Clicked="OnRezervareListAddedClicked" />
+    </ContentPage.ToolbarItems>
+     <ContentPage.Content>
+         <StackLayout>
+            <ListView x:Name="listView" Margin="20" ItemSelected="OnListViewItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Nume}" Detail="{Binding Data}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Text="Bun venit la restaurant!" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="30"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

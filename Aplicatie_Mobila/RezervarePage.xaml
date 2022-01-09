@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Aplicatie_Mobila.RezervarePage">
+    <ContentPage.Content xmlns:local="clr-namespace:Aplicatie_Mobila">
+        <StackLayout Margin="20">
+            <Editor Placeholder="Introduceti un numar de telefon" Margin="20" Text="{Binding Nr_telefon}" HeightRequest="50">
+                <Editor.Behaviors>
+                    <local:ValidationBehaviour />
+                    <!-- background necompletat rosu--> 
+                </Editor.Behaviors>
+            </Editor>
+            <Editor Placeholder="Specificati numarul de persoane" Margin="20" Text="{Binding Nr_persoane}" HeightRequest="50">
+                <Editor.Behaviors>
+                    <local:ValidationBehaviour />
+                    <!-- background necompletat rosu-->
+                </Editor.Behaviors>
+            </Editor>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Text="Save" Clicked="OnSaveButtonClicked"  BackgroundColor="DarkGreen" TextColor="White" FontSize="25" CornerRadius="30"/>
+                <Button Grid.Column="1" Text="Delete" Clicked="OnDeleteButtonClicked"  BackgroundColor="DarkGreen" TextColor="White" FontSize="25" CornerRadius="30"/>
+                <ListView Grid.Row="1" x:Name="listView" Margin="20" ItemSelected="OnListViewItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Nr_telefon}" Detail="{Binding Nr_persoane}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

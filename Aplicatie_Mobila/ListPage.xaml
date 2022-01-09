@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aplicatie_Mobila.ListPage">
+    <ContentPage.Content xmlns:local="clr-namespace:Aplicatie_Mobila">
+        <StackLayout Margin="20">
+            <Editor Placeholder="Adaugati numele" Text="{Binding Nume}" HeightRequest="100" >
+                <Editor.Behaviors>
+                    <local:ValidationBehaviour/>
+                </Editor.Behaviors>
+            </Editor>
+            <Button Text="Adaugati detalii rezervare" Clicked="OnChooseButtonClicked"  BackgroundColor="DarkGreen" FontSize="19" TextColor="White" CornerRadius="12"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Text="Save" Clicked="OnSaveButtonClicked"  BackgroundColor="DarkGreen" TextColor="White" FontSize="25" CornerRadius="30"/>
+                <Button Grid.Column="1" Text="Delete" Clicked="OnDeleteButtonClicked"  BackgroundColor="DarkGreen" TextColor="White" FontSize="25" CornerRadius="30"/>
+                <ListView Grid.Row="1" Grid.ColumnSpan="2" x:Name="listView" Margin="20">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Nr_telefon}" Detail="{Binding Nr_persoane}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
